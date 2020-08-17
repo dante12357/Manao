@@ -1,7 +1,7 @@
 <?php
 
 ?>
-    <form class="form" id="login_form">
+    <form class="form" method="post" id="login_form">
         <p>
         <div>
             <input class="form__input" type="text" id="login"  name="login" placeholder="Enter login" value="">

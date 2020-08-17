@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require_once("app/config/conf.php");
-
+require_once(__DIR__."/App/config/conf.php");
 
 Routing::buildRoute();
 

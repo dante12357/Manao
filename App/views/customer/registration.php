@@ -1,5 +1,5 @@
 
-<form class="form" id="register_form">
+<form class="form" method="post" id="register_form">
     <p>
     <div>
         <input class="form__input" type="text" id="login" name="login" placeholder="Enter login" value="">
