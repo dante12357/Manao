@@ -6,14 +6,15 @@ $.ajax({
 });
 
 $(function () {
+    
     let loginForm = $('#login_form');
     let registrationForm = $('#register_form');
 
-    registrationForm.submit(function (event) {
+    $(document).on('submit','#login_form',function (event) {
         ajax(registrationForm, '/customer/registration', event);
     });
 
-    loginForm.submit(function (event) {
+    $(document).on('submit','#register_form',function (event) {
         ajax(loginForm, '/customer/login', event);
     });
 
