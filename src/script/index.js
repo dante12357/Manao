@@ -1,11 +1,11 @@
-$.ajax({
-    url: $(location).attr('href'),
-    success: function (data) {
-        $('#result').html(data);
-    }
-});
-
 $(function () {
+    
+    $.ajax({
+        url: $(location).attr('href'),
+        success: function (data) {
+            $('#result').html(data);
+        }
+    });
     
     let loginForm = $('#login_form');
     let registrationForm = $('#register_form');
