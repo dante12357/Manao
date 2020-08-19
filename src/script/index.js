@@ -10,11 +10,11 @@ $(function () {
     let loginForm = $('#login_form');
     let registrationForm = $('#register_form');
 
-    $(document).on('submit','#login_form',function (event) {
+    $(document).on('submit','#register_form',function (event) {
         ajax(registrationForm, '/customer/registration', event);
     });
 
-    $(document).on('submit','#register_form',function (event) {
+    $(document).on('submit','#login_form',function (event) {
         ajax(loginForm, '/customer/login', event);
     });
 
