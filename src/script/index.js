@@ -6,16 +6,13 @@ $(function () {
             $('#result').html(data);
         }
     });
-    
-    let loginForm = $('#login_form');
-    let registrationForm = $('#register_form');
 
     $(document).on('submit','#register_form',function (event) {
-        ajax(registrationForm, '/customer/registration', event);
+        ajax($('#register_form'), '/customer/registration', event);
     });
 
     $(document).on('submit','#login_form',function (event) {
-        ajax(loginForm, '/customer/login', event);
+        ajax($('#login_form'), '/customer/login', event);
     });
 
     function ajax(form, action, event) {
