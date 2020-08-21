@@ -1,4 +1,5 @@
 $(function () {
+<<<<<<< HEAD
     
     $.ajax({
         url: $(location).attr('href'),
@@ -13,10 +14,44 @@ $(function () {
 
     $(document).on('submit','#login_form',function (event) {
         ajax($('#login_form'), '/customer/login', event);
+=======
+    function clear() {
+        $('#success').html('');
+        $('#error').html('');
+    }
+
+    $.ajax({
+        url: $(location).attr('href'),
+        success: function (data) {
+            $('#result').html(data);
+        }
     });
 
-    function ajax(form, action, event) {
+    $(document).on('click', '#loginPage, #registrPage, #logout', function (event) {
+        ajaxLink($(this).attr("href"));
         event.preventDefault();
+>>>>>>> fix
+    });
+
+    function ajaxLink(url) {
+        clear();
+        $.ajax({
+            url: url,
+            success: function (data) {
+                $('#result').html(data);
+                history.pushState(null, null, url);
+            }
+
+        })
+    }
+
+    $(document).on('submit','#register_form, #login_form',function (event) {
+        ajaxForm($(this), $(this).data("action"));
+        event.preventDefault();
+
+    });
+
+    function ajaxForm(form, action, event) {
 
         $.ajax({
             url: action,
@@ -24,8 +59,7 @@ $(function () {
             type: 'POST',
             success: function (data) {
                 if (data.success) {
-                    $('#success').html('');
-                    $('#error').html('');
+                    clear();
                     if (data.action == "redirect") {
                         window.location.href = data.redirectUrl;
                     } else {

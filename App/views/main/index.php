@@ -15,18 +15,20 @@
 </head>
 <body>
 <?php if (isset($_SESSION['auth'])) : ?>
-    Hello, <?php echo $_SESSION['name']; ?><br>
+    Hello, <?php echo $_SESSION['login']; ?><br>
+    <a id="logout" href="/customer/logout">logout</a>
 <?php else : ?>
-    <a href="/customer/login">Login</a>
-    <a href="/customer/registration">Registration</a>
-
-    <div id="error" style="color: red;"></div>
-    <div id="success" style="color: green;"></div>
-    <div id="result"></div>
-
-    <noscript>Include JS or nothing will work</noscript>
+    <a id="loginPage" href="/customer/login">Log In</a>
+    <a id="registrPage" href="/customer/registration">Registration</a>
 
 <?php endif; ?>
+
+<div id="error" style="color: red;"></div>
+<div id="success" style="color: green;"></div>
+<div id="result"></div>
+
+<noscript>Include JS or nothing will work</noscript>
+
 
 
 </body>

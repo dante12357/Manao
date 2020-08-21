@@ -1,5 +1,5 @@
 
-<form class="form" method="post" id="register_form">
+<form class="form" method="post" data-action='/customer/registration' id="register_form">
     <p>
     <div>
         <input class="form__input" type="text" id="login" name="login" placeholder="Enter login" value="">
@@ -16,7 +16,7 @@
     <div>
         <input class="form__input" type="text" id="name" name="name" placeholder="Enter name" value="">
     </div>
-    <button type="submit">Sign up</button>
+    <button  type="submit">Sign up</button>
     </p>
 </form>
 
