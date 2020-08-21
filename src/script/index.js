@@ -1,6 +1,4 @@
-$(function () {
-<<<<<<< HEAD
-    
+$(function () {    
     $.ajax({
         url: $(location).attr('href'),
         success: function (data) {
@@ -14,7 +12,6 @@ $(function () {
 
     $(document).on('submit','#login_form',function (event) {
         ajax($('#login_form'), '/customer/login', event);
-=======
     function clear() {
         $('#success').html('');
         $('#error').html('');
@@ -30,7 +27,6 @@ $(function () {
     $(document).on('click', '#loginPage, #registrPage, #logout', function (event) {
         ajaxLink($(this).attr("href"));
         event.preventDefault();
->>>>>>> fix
     });
 
     function ajaxLink(url) {
