@@ -1,4 +1,4 @@
-$(function () {    
+$(function () {
     $.ajax({
         url: $(location).attr('href'),
         success: function (data) {
@@ -6,23 +6,11 @@ $(function () {
         }
     });
 
-    $(document).on('submit','#register_form',function (event) {
-        ajax($('#register_form'), '/customer/registration', event);
-    });
-
-    $(document).on('submit','#login_form',function (event) {
-        ajax($('#login_form'), '/customer/login', event);
     function clear() {
         $('#success').html('');
         $('#error').html('');
     }
 
-    $.ajax({
-        url: $(location).attr('href'),
-        success: function (data) {
-            $('#result').html(data);
-        }
-    });
 
     $(document).on('click', '#loginPage, #registrPage, #logout', function (event) {
         ajaxLink($(this).attr("href"));
@@ -36,18 +24,24 @@ $(function () {
             success: function (data) {
                 $('#result').html(data);
                 history.pushState(null, null, url);
+                if (data.success) {
+                    if (data.action == "redirect") {
+                        window.location.href = data.redirectUrl;
+                    }
+                }
             }
+
 
         })
     }
 
-    $(document).on('submit','#register_form, #login_form',function (event) {
+    $(document).on('submit', '#register_form, #login_form', function (event) {
         ajaxForm($(this), $(this).data("action"));
         event.preventDefault();
 
     });
 
-    function ajaxForm(form, action, event) {
+    function ajaxForm(form, action) {
 
         $.ajax({
             url: action,
@@ -68,4 +62,4 @@ $(function () {
             }
         });
     }
-});
+})
