@@ -8,13 +8,18 @@ class Routing
         if ($part[1] != '') {
             $controllerName = ucfirst(str_replace('-', '', $part[1]) . "Controller");
         }
-        require_once CONTROLLER_PATH . $controllerName . ".php";
-        if (isset($part[2]) && $part[2] != '') {
-            $action = $part[2] . "Action";
+        if (file_exists(CONTROLLER_PATH . $controllerName . ".php")) {
+            require_once CONTROLLER_PATH . $controllerName . ".php";
+            if (isset($part[2]) && $part[2] != '') {
+                $action = $part[2] . "Action";
+            } else {
+                header('Location: http://' . $_SERVER['HTTP_HOST'] . '/customer/login', true,302);
+            }
+            $controller = new $controllerName();
+            $controller->$action();
+        } else {
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/customer/login', true,302);
         }
-        $controller = new $controllerName();
-        $controller->$action();
-
     }
 
     public static function getPath()
